@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import { useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
+import "./Sign.css"
 
 // export default class Registration extends Component{
 //     state ={
@@ -156,7 +157,7 @@ export default function Register () {
                 father_name: register.father_name,
                 type_of_user: register.role,
                 email: register.email,
-                password: register.password,
+                password: register.password
                                
             }).then(res => {
                 console.log(res)
@@ -171,10 +172,11 @@ export default function Register () {
         }
     }
         return(
+            <div className="sign-body">
             <section>
                 <form id="registration-form" class="form-container" method="post" onSubmit={submitChackin}>
                     <div class="logo">
-                        <a href="/home">Edukid</a>
+                        <a href="/">Edukid</a>
                     </div>
                     <h1 class="form-title">Регистрация</h1>
                     <div class="form-field">
@@ -238,6 +240,7 @@ export default function Register () {
                     </div>
                 </form>
             </section>
+            </div>
         )
     
 }

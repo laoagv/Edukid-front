@@ -7,6 +7,7 @@ a {
 }
 body {
 	margin: 0;
+	background: #EAEAEA;
 }
 header {
 	height: 100px;
@@ -138,18 +139,26 @@ header {
 	font-size: 16px;
 	color: #484C52;
 }
+.menu_body{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
 .sign-button {
-	align-content: center;
 	margin-left: 55px;
 	display: flex;
-	align-self: center;
+	flex-direction: row;
+	justify-content: center;
 }
 .sign-button img{
-	width: 29px;
-	height: 29px;
-	margin-right: 12px;
+	width: 50px;
+	height: 50px;
+	margin-left: 12px;
+	border: 4px solid #FF6933;
+	border-radius: 27px;
 }
 .sign-button button{
+	align-self: center;
 	width: 79px;
 	height: 26px;
 	align-self: center;
@@ -163,30 +172,144 @@ header {
 	color: #FF6933;
 	background: #FFFFFF;
 }
-.username_box{
-	margin: auto 10px;
-	padding: 0;
-	border: 0;
+.sign-btn{
+	display: block;
+	align-self: center;
 }
-.kostil{
+h1{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 128.9%;
+
+
+  color: #484C52;
+}
+.app-container{
+ 	background: #FFFFFF;
+	border-radius: 30px;
 	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin-top: 52px;
 }
-.sign-button.logout{
-	margin-left: 0;
-}
-.username_box_name{
-	padding: 5px ;
+.btn-in-profile{
 	background: #FF6933;
-	border-radius: 8px;
+	box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+	padding: 9px 9px 10px 20px;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 128.9%;
+	border: 0;
+	color: #FFFFFF;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.btn-in-profile img{
+	align-self: center;
+	margin: 0px 8px;
+	transition: all 0.3s ease 0s;
+
+}
+.class-box.active .btn-in-profile img{
+	transition: all 0.3s ease 0s;
+	transform: rotate(90deg);
+}
+.profile-box-title{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 128.9%;
+	color: #484C52;
+	flex-grow: 1;
+	padding-left: 36px;
+	padding-top: 18px;
+	text-align: left;
+}
+.profile-box-content{
+	display: flex;
+	
+}
+.profile-box-info{
+	background: #FFFFFF;
+	border-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	margin-top: 17px;
+}
+.profile-box{
+	margin-top: 64px;
+	margin-bottom: 50px;
+	background: #EAEAEA;
+	box-shadow: 1px 4px 13px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+	display: none;
+	flex-direction: column;
+	position: relative;
+
+	max-width: 854px;
+
+	padding-left: 64px;
+	padding-right: 10px;
+	padding-bottom: 11px;
+
+	transform: scale(0);
+	transition: all 0.3s ease 0s;
+	transform-origin: top;
+}
+.class-box.active .profile-box{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transform: scale(1.0);
+	transition: all 0.3s ease 0s;
+	transform-origin: top;
+}
+
+.student-add{
+
+	margin-top: 34px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+
+	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 24px;
 	line-height: 128.9%;
+
+	color: #484C52;
+}
+.student-add button{
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 128.9%;
+	padding: 2px 11px 2px 1px;
 
 	color: #FFFFFF;
 
 }
-.username_box_name:hover{
-	background: #FFFFFF;
-	color: #FF6933;
+.plus-img{
+	width: 26.67px;
+	height: 26.67px;
+	transform: rotate(-90deg)
+}
+.class-box{
+	text-align: left;
+	padding-left: 55px;
+	position: relative;
+	flex-shrink: 1;
+	margin-bottom: 46px;
+}
+.student-add *{
+	margin-right: 30px;
 }
