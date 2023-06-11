@@ -132,7 +132,7 @@ export function refreshToken(token){
 }
 
 export async function getUserData(){
-    const response = await fetchWithAuth("api/user", {method: 'GET',})
+    const response = await fetchWithAuth("api/user", {method: 'GET', credentials: 'include',})
     const data =  await response.json()       
     localStorage.setItem('userData', JSON.stringify(await data))
     return 
