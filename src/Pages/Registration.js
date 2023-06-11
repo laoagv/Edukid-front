@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
 import "./Sign.css"
+import { server } from "../server";
 
 // export default class Registration extends Component{
 //     state ={
@@ -151,7 +152,7 @@ export default function Register () {
         } else if(register.password !== register.password2) {
             alert("Repeated password incorrectly")
         } else {
-            axios.post("http://127.0.0.1:8000/api/user/", {
+            axios.post(server +"api/user/", {
                 name: register.name,    
                 surname: register.surname,
                 father_name: register.father_name,
@@ -162,7 +163,7 @@ export default function Register () {
             }).then(res => {
                 console.log(res)
                 if (res.statusText === 'Created') {
-                    window.location.href = "http://localhost:3000/login"
+                    window.location.href = server+"login"
                 } else {
                     alert("There is already a user with this email")
                 }

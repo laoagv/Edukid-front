@@ -2,6 +2,21 @@ import React, {Component} from "react";
 import Header from "../Components/Header";
 import "./Home.css";
 import styles from "./Home.css"
+import img1 from '../images/jpg/child_listen.jpg'
+import img2 from '../images/svg/Ellipse-orange.svg'
+import img3 from '../images/svg/Ellipse2.svg'
+import img4 from '../images/svg/Ellipse_fouth_big.svg'
+import img5 from '../images/svg/Ellipse_fouth_midle.svg'
+import img6 from '../images/svg/Ellipse_fouth_small.svg'
+import img7 from '../images/svg/Ellipse.svg'
+import img8 from '../images/svg/strelka.svg'
+import img9 from '../images/svg/Vector-strelka.svg'
+import img10 from '../images/jpg/teacher-explaining-to-pupils-new-things.jpg'
+import img11 from '../images/jpg/modern-techniques-of-learning-at-school.jpg'
+import img12 from '../images/jpg/mother-kid-first-school-day-side-view.jpg'
+import img13 from '../images/jpg/teamwork-over-the-teacher-s-laptop.jpg'
+import img14 from '../images/jpg/happy-little-girl-making-video-call-while-having-online-class-over-laptop.jpg'
+import img15 from '../images/jpg/portrait-of-happy-smiling-female-wearing-casual-attire-helping-her-daughter-with-lessons-woman-looking-at-her-child-with-love-sitting-at-table-with-books-and-laptop.jpg'
 
 
 import { checkAuth, fetchWithAuth, getUserClass, getUserData } from "../api";
@@ -20,24 +35,24 @@ export default class Home extends Component{
                             </div>
                             <div class="introdution_pic">
                                 <div class="romb">
-                                    <img src="{% static 'main/images/jpg/child_listen.jpg' %}"/>
+                                    <img src={img1}/>
                                 </div>
                             </div>
                             <div class="back_romb">
                                 <div class="back_romb_content"></div>
                             </div>
-                            <img class="orange-ellipse1 ellipse" src="{% static 'main/images/svg/Ellipse-orange.svg' %}"/>
-                            <img class="blue-ellipse1 ellipse" src="{% static 'main/images/svg/Ellipse2.svg' %}"/>
+                            <img class="orange-ellipse1 ellipse" src={img2}/>
+                            <img class="blue-ellipse1 ellipse" src={img3}/>
                             <div class="rectangle1">
                                 <div class="rectangle1_content"></div>
                             </div>
                             <div class="arcs">
-                                <img src="{% static 'main/images/svg/Ellipse_fouth_big.svg' %}" style={{width: "63px;", height: "63px;"}}/>
-                                <img src="{% static 'main/images/svg/Ellipse_fouth_midle.svg' %}" style={{width: "47px;", height: "47px;"}}/>
-                                <img src="{% static 'main/images/svg/Ellipse_fouth_small.svg' %}" style={{width: "30px;", height: "30px;"}}/>
+                                <img src={img4} style={{width: "63px;", height: "63px;"}}/>
+                                <img src={img5} style={{width: "47px;", height: "47px;"}}/>
+                                <img src={img6} style={{width: "30px;", height: "30px;"}}/>
                             </div>
-                            <img class="elipse1" src="{% static 'main/images/svg/Ellipse.svg' %}"/>
-                            <img class="strelka" src="{% static 'main/images/svg/strelka.svg' %}"/>
+                            <img class="elipse1" src={img7}/>
+                            <img class="strelka" src={img8}/>
                         </div>
                     </div>
                     <div class="more-edukid">
@@ -56,7 +71,7 @@ export default class Home extends Component{
                                     <div class="trapecia_body">
                                         <div class="top-triangle">
                                             <div class="small-triangle"></div>
-                                            <img src="{% static 'main/images/svg/Vector-strelka.svg' %}"/>
+                                            <img src={img9}/>
                                         </div>
                                     </div>
                                 </div>				
@@ -70,21 +85,21 @@ export default class Home extends Component{
                             </div>
                             <div class="for_who_content">
                                 <div class="for_who_content_container for_who_first" style={{alignSelf: "flex-end"}}>
-                                    <img src="{% static 'main/images/jpg/teacher-explaining-to-pupils-new-things.jpg' %}"/>
+                                    <img src={img10}/>
                                     <div class="for_who_content_text">
                                         <h3>Для учителей</h3>
                                         <p>Возможность создания собственных тестов и использование имеющихся на сайте. Автоматическая проверка тестов. Выявление проблемных тем для дальнейшей работы над ними.</p>
                                     </div>
                                 </div>
                                 <div class="for_who_content_container" style={{alignSelf: "center"}}>
-                                    <img src="{% static 'main/images/jpg/modern-techniques-of-learning-at-school.jpg' %}"/>
+                                    <img src={img11}/>
                                     <div class="for_who_content_text">
                                         <h3>Для учеников</h3>
                                         <p>Возможность закрепить или получить знания по необходимым темам</p>
                                     </div>
                                 </div>
                                 <div class="for_who_content_container">
-                                    <img src='images/mother-kid-first-school-day-side-view.jpg'/>
+                                    <img src={img12}/>
                                     <div class="for_who_content_text">
                                         <h3>Для родителей</h3>
                                         <p>Информирование о содержании учебно-воспитательного процесса ребенка.</p>
@@ -99,7 +114,7 @@ export default class Home extends Component{
                             <div class="more_content">
                                 <div class="more_content_container">
                                     <div style={{flex: "1 1", maxWidth: "50%"}}>
-                                        <img src="./images/jpg/teamwork-over-the-teacher-s-laptop.jpg"/>
+                                        <img src={img13}/>
                                     </div>
                                     <div class="more_text_container">
                                         <h3>Для преподавателей</h3>
@@ -115,7 +130,7 @@ export default class Home extends Component{
                                 </div>
                                 <div class="more_content_container">
                                     <div style={{flex: "1 1" ,maxWidth: "50%"}}>
-                                        <img src="{% static 'main/images/jpg/happy-little-girl-making-video-call-while-having-online-class-over-laptop.jpg' %}"/>
+                                        <img src={img14}/>
                                     </div>
                                     <div class="more_text_container">
                                         <h3>Для учеников</h3>
@@ -131,7 +146,7 @@ export default class Home extends Component{
                                 </div>
                                 <div class="more_content_container">
                                     <div style={{flex: "1 1", maxWidth: "50%"}}>
-                                        <img src="{% static 'main/images/jpg/portrait-of-happy-smiling-female-wearing-casual-attire-helping-her-daughter-with-lessons-woman-looking-at-her-child-with-love-sitting-at-table-with-books-and-laptop.jpg' %}"/>
+                                        <img src={img15}/>
                                     </div>
                                     <div class="more_text_container">
                                         <h3>Для  родителей</h3>

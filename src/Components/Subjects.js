@@ -4,6 +4,7 @@ import { checkAuth, fetchWithAuth, getUserData } from "../api";
 import "./Stufentbox.css"
 import styles from "../Pages/Homeworks.module.css"
 import Homework from "./Homework"
+
 export default class Subjects extends Component{
 
     constructor(props) {

@@ -105,7 +105,6 @@ export function checkAuth(){
 }
 
 export function refreshToken(token){
-    console.log("huy")
     return fetch(server()+'api/token/refresh/',{
         method: 'POST',
         credentials: "include",
