@@ -4,10 +4,10 @@ import axios from 'axios';
 import validator from 'validator';
 import { getTokenData, getUserData } from "../api";
 import "./Sign.css"
-import { server } from "../server";
+import { front, server } from "../server";
 
 function changeLocation(){
-    window.location.href = server
+    window.location.href = front
 }
 async function kostil(login){
     await getTokenData(login)
