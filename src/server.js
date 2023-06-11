@@ -1,6 +1,6 @@
 export function server(){
-    return "http://dimaloh.pythonanywhere.com/"
+    return "https://dimaloh.pythonanywhere.com/"
 }
 export function front(){
-    return "http://localhost:3000/"
+    return "https://edukid-front-25n5juj59-laoagv.vercel.app/"
 }
