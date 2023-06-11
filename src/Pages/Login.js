@@ -7,7 +7,7 @@ import "./Sign.css"
 import { front, server } from "../server";
 
 function changeLocation(){
-    window.location.href = front
+    window.location.href = front()
 }
 async function kostil(login){
     await getTokenData(login)
