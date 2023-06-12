@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Header from "../Components/Header";
 import { checkAuth, fetchWithAuth, getUserData } from "../api";
 import Classes from "../Components/Classes";
+import img from '../images/svg/plus.svg'
 
 export default class Tasks extends Component{
     
@@ -12,7 +13,7 @@ export default class Tasks extends Component{
 				<h1>Мои классы</h1>
 				<Classes/>
 				<div class="class-box">
-					<button class="btn-in-profile" id="class-btn"><img src="{% static 'my_classes/images/svg/plus.svg' %}"/>Добавить класс</button>
+					<button class="btn-in-profile" id="class-btn"><img src={img}/>Добавить класс</button>
 				</div>
 			</div>
 		</section>

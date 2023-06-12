@@ -5,6 +5,9 @@ import { checkAuth, fetchWithAuth, getUserClass, getUserData, getUserSubjects } 
 import styles from "./Homeworks.module.css"
 import {nanoid} from 'nanoid';
 import { json } from "react-router";
+import img from '../images/svg/arrow.svg'
+import img2 from '../images/svg/arrow.svg'
+
 export default class Homeworks extends Component{
     constructor(props) {
         super(props);
@@ -31,6 +34,8 @@ export default class Homeworks extends Component{
     componentDidMount() {
     getUserSubjects()
     getUserClass().then(()=>{
+        console.log("хуй1")
+        console.log(JSON.parse(localStorage.userClasses))
         this.classesToOptions()
     })
     this.chechRole()
@@ -114,6 +119,8 @@ export default class Homeworks extends Component{
         })
     }
     classesToOptions(){
+        console.log("хуй2")
+        console.log(JSON.parse(localStorage.userClasses))
         this.setState({classes:JSON.parse(localStorage.userClasses)})
         this.setState({currentClass: JSON.parse(localStorage.userClasses)[0].id.toString()})
         const newList = []
@@ -157,9 +164,9 @@ export default class Homeworks extends Component{
                         
                         {/* {this.state.buttons} */}
                         {this.state.teacher ? <div className={styles['subjec-flex-btn']}>
-            <a className={styles['btn-in-profile-1']} href="/addHomework" id="class-btn">Добавить задание<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a>
+            <a className={styles['btn-in-profile-1']} href="/addHomework" id="class-btn">Добавить задание<img src={img}/></a>
             
-                <button className={styles['btn-in-profile-1']}  onClick={this.createSubject}   id="class-btn">Добавить предмет<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></button>
+                <button className={styles['btn-in-profile-1']}  onClick={this.createSubject}   id="class-btn">Добавить предмет<img src={img2}/></button>
             
                 <input value={this.state.createSub} name="createSub" onChange={this.changeCreateSub}></input>
             

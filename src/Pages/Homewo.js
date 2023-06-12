@@ -4,6 +4,7 @@ import { checkAuth, fetchWithAuth, getUserClass, getUserData, getUserHomeworks, 
 import styles from "./Homeworks.module.css"
 import {nanoid} from 'nanoid';
 import { useParams } from "react-router-dom";
+import img from '../images/svg/arrow.svg'
 
 function withParams(Component) {
   return props => <Component {...props} params={useParams()} />;
@@ -67,7 +68,7 @@ class Homewo extends Component{
                                 
                             </div>
                             <div>
-                               {this.state.pupil ? <button className={styles['addAnswer']}  id="class-btn"><a href={"/addAnswer/"+this.state.homework_id}>Добавить решение</a><img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></button> : <div></div>}
+                               {this.state.pupil ? <button className={styles['addAnswer']}  id="class-btn"><a href={"/addAnswer/"+this.state.homework_id}>Добавить решение</a><img src={img}/></button> : <div></div>}
                                 <button className="addAnswer"><a href="/Homeworks">Назад</a></button>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ import { checkAuth, fetchWithAuth, getUserClass, getUserData } from "../api";
 import Classes from "../Components/Classes";
 import "./MyClasses.css"
 import {nanoid} from 'nanoid';
+import img from "../images/svg/plus.svg"
 
 
 export default class MyClasses extends Component{
@@ -75,7 +76,7 @@ export default class MyClasses extends Component{
 					})} */}
 					<div class="class-box">
 						<form class="student-add">
-							<button onClick={e=>this.createNewClass(e)} class="btn-in-profile" id="class-btn"><img src="/images/svg/plus.svg"/>Добавить класс</button>
+							<button onClick={e=>this.createNewClass(e)} class="btn-in-profile" id="class-btn"><img src={img}/>Добавить класс</button>
 							<input 
 								value={this.newClass}
 								onChange={e => this.setState({newClass: e.target.value})}

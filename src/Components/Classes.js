@@ -2,6 +2,8 @@ import React, {Component, useState} from "react";
 import Header from "../Components/Header";
 import { checkAuth, fetchWithAuth, getUserData } from "../api";
 import Stufentbox from "./Stufentbox";
+import img from '../images/svg/arrow.svg'
+import img2 from "../images/svg/plus.svg"
 
 export default class Classes extends Component{
     constructor(props) {
@@ -68,12 +70,12 @@ export default class Classes extends Component{
         }
         return( 
                 <div class="class-box" id={this.props.btnid}>
-					<button class="btn-in-profile" onClick={onButton} id="class-btn">Класс {this.props.class_name}<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></button>
+					<button class="btn-in-profile" onClick={onButton} id="class-btn">Класс {this.props.class_name}<img src={img}/></button>
 					<div class="profile-box">
 						{this.state.students_components}
 					</div>
                    <form class="student-add">
-         		    	<button onClick={e=>this.createNewStudent(e)} class="btn-in-profile" id="class-btn"><img src="/images/svg/plus.svg"/>Добавить ученика:</button>
+         		    	<button onClick={e=>this.createNewStudent(e)} class="btn-in-profile" id="class-btn"><img src={img2}/>Добавить ученика:</button>
                          <input 
                             type="text" 
                             value = {this.newStudent} 
