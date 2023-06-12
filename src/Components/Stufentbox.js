@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import { checkAuth, fetchWithAuth, getUserData } from "../api";
 import "./Stufentbox.css"
 import img from '../images/jpg/profile-img-ex.jpg'
-import img2 from '../src/images/svg/delete.svg'
+import img2 from '../images/svg/delete.svg'
 
 export default class Stufentbox extends Component{
     render(){
