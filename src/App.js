@@ -34,7 +34,7 @@ function App() {
         <Route path="/homeworks"  element={<Homeworks/>}/>
         <Route path="/addHomework"  element={<AddHomework/>}/>        
         <Route path="/addAnswer/:id"  element={<AddAnswer/>}/>        
-
+        <Route path='/logout' element={<Logout/>}/>
         <Route path="/registration"  element={<Registration/>}/>
         <Route path="/login"  element={<Login/>}/>
         <Route path='/check' element={<MySlider/>}/>
