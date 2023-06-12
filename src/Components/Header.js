@@ -21,7 +21,7 @@ export default function Header() {
                                 <a href="/profile" className="username_box_name">{userData[0].name} {userData[0].surname}</a>
                             </button>
                             <div className="sign-button logout">
-                                <a href="account/logout">
+                                <a href="/logout">
                                     <button id="sign-btn">Выйти</button>
                                 </a>
                             </div>
