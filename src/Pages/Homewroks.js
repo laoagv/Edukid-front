@@ -29,15 +29,13 @@ export default class Homeworks extends Component{
     }
     componentDidMount() {
     getUserSubjects()
-    getUserClass().then(()=>{
-        this.classesToOptions()
-    })
+    getUserClass()
     this.chechRole()
     }
     componentDidUpdate(prevProps, prevState) {
         if (prevState.currentClass!==this.state.currentClass){
             this.getSubjectsByClass()
-            this.classesToOptions()
+            // this.classesToOptions()
         }
         if (prevState.mysubjects!==this.state.mysubjects){
             this.renderSubjects()
@@ -51,7 +49,7 @@ export default class Homeworks extends Component{
         if (x!=="teacher"){
             this.setState({buttons:<div></div>}
             )}
-        
+        this.classesToOptions()        
     }
     selectClass(event){
         this.setState({currentClass:event.target.value})
