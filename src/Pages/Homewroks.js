@@ -30,13 +30,14 @@ export default class Homeworks extends Component{
         this.chechRole = this.chechRole.bind(this)
         this.changeCreateSub = this.changeCreateSub.bind(this)
         this.createSubject = this.createSubject.bind(this)
+        this.setClasses = this.setClasses.bind(this)
     }
     componentDidMount() {
     getUserSubjects()
     getUserClass().then(()=>{
         console.log("хуй1")
         console.log(JSON.parse(localStorage.userClasses))
-        this.classesToOptions()
+        this.setClasses()
     })
     this.chechRole()
     }
@@ -47,6 +48,9 @@ export default class Homeworks extends Component{
         }
         if (prevState.mysubjects!==this.state.mysubjects){
             this.renderSubjects()
+        }
+        if (prevState.classes!==this.state.classes){
+            this.classesToOptions()
         }
     }
     createSubject(){
@@ -118,11 +122,12 @@ export default class Homeworks extends Component{
             }
         })
     }
-    classesToOptions(){
-        console.log("хуй2")
-        console.log(JSON.parse(localStorage.userClasses))
+    setClasses(){
         this.setState({classes:JSON.parse(localStorage.userClasses)})
         this.setState({currentClass: JSON.parse(localStorage.userClasses)[0].id.toString()})
+    }
+    classesToOptions(){
+        
         const newList = []
         console.log(this.state.classes)
 
