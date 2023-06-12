@@ -124,7 +124,8 @@ export default class Homeworks extends Component{
         this.setState({classes:JSON.parse(localStorage.userClasses)})
         this.setState({currentClass: JSON.parse(localStorage.userClasses)[0].id.toString()})
         const newList = []
-        
+        console.log(this.state.classes)
+
         this.state.classes.forEach(element => {
             newList.push(<option value={element.id}>{element.class_name}</option>)
             this.setState({myclasses:[...newList]})
