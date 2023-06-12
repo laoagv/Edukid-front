@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import { getUserHomeworks, fetchWithAuth, getUserClass, getUserData, getUserSubjects } from "../api";
 import styles from "./AddHomework.module.css"
 import { useParams } from "react-router-dom";
-import { server } from "../server";
+import { front, server } from "../server";
 
 function withParams(Component) {
   return props => <Component {...props} params={useParams()} />;
@@ -64,13 +64,13 @@ class AddAnswer extends Component{
             }),
             headers:{
                 "Accept": "application/json",
-                "Content-Type": "application/json",}.then(res => {
-                    console.log(res)
-                    if (res.statusText === 'Created') {
-                        window.location.href = server+"/homeworks"
-                    } })
+                "Content-Type": "application/json",}
 
-        })
+        }).then(res => {
+            console.log(res)
+            if (res.statusText === 'Created') {
+                window.location.replace(front()+"homeworks")
+            } })
     }
         
 

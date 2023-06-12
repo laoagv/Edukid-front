@@ -41,6 +41,18 @@ h1{
     
     margin: 0 auto;
 }
+.flex-row{
+	display: flex;
+	flex-direction: row;
+	max-height: 50px;
+	margin-top: 10px;
+}
+
+.flex-row button{
+	margin: 0 10px 0 0;
+	flex-grow: 1;
+	
+}
 .container {
 	max-width: 1200px;
 	margin: 0 auto;

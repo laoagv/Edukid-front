@@ -163,7 +163,7 @@ export default function Register () {
             }).then(res => {
                 console.log(res)
                 if (res.statusText === 'Created') {
-                    window.location.href = front()+"login"
+                    window.location.replace(front()+"login")
                 } else {
                     alert("There is already a user with this email")
                 }

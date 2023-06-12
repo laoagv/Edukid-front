@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Header from "../Components/Header";
 import { checkAuth, fetchWithAuth, getUserClass, getUserData, getUserSubjects } from "../api";
 import styles from "./AddHomework.module.css"
+import { front } from "../server";
 export default class AddHomework extends Component{
     constructor(props) {
         super(props);
@@ -98,6 +99,8 @@ export default class AddHomework extends Component{
             headers:{
                 "Accept": "application/json",
                 "Content-Type": "application/json",}
+        }).then((response)=>{
+            window.location.replace(front()+"homeworks")
         })
     }
         
@@ -121,7 +124,7 @@ export default class AddHomework extends Component{
                                             <button onClick={this.submitChackin}>добавить</button>
                                         </div>
                                         <div>
-                                            <button>отменить</button>
+                                            <button className="btn-in-profile-1"><a href="/Homeworks">отменить</a></button>
                                         </div>
                                     </div>
                                     <div className={[styles.flex_row]}>

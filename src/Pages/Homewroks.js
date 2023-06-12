@@ -11,13 +11,12 @@ export default class Homeworks extends Component{
         this.state = {
             mysubjects:[],
             myclasses:[],
+            createSub:"",
             currentClass:"",
             classes:[],
             subjectsComp:[],
-            buttons:[<div className={styles['subjec-flex-btn']}>
-                        <a className={styles['btn-in-profile-1']} href="/addHomework" id="class-btn">Добавить задание<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a>
-                        {/* <a className={styles['btn-in-profile-1']} id="class-btn">Добавить предмет<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a> */}
-                    </div>]
+            buttons:[<div></div>],
+            teacher: false
 
         };
 		this.getSubjectsByClass = this.getSubjectsByClass.bind(this);
@@ -26,10 +25,14 @@ export default class Homeworks extends Component{
         this.kostil = this.kostil.bind(this);
         this.renderSubjects = this.renderSubjects.bind(this);
         this.chechRole = this.chechRole.bind(this)
+        this.changeCreateSub = this.changeCreateSub.bind(this)
+        this.createSubject = this.createSubject.bind(this)
     }
     componentDidMount() {
     getUserSubjects()
-    getUserClass()
+    getUserClass().then(()=>{
+        this.classesToOptions()
+    })
     this.chechRole()
     }
     componentDidUpdate(prevProps, prevState) {
@@ -41,19 +44,59 @@ export default class Homeworks extends Component{
             this.renderSubjects()
         }
     }
-    
+    createSubject(){
+        fetchWithAuth("api/v1/Subject/Create/", {
+            method:"POST",
+            credentials:"include",
+            body: JSON.stringify({
+                class_id: this.state.currentClass,
+                title : this.state.createSub
+            }),
+            headers:{
+                "Accept": "application/json",
+                "Content-Type": "application/json",}
+        }).then((response)=>{
+            if (response.status==201){
+                getUserSubjects().then(()=>{
+                    this.getSubjectsByClass()
+                })
+            }
+        })
+    }
     chechRole(){
+
         const a = JSON.parse(localStorage.userData)
         const x = a[0].type_of_user
        
-        if (x!=="teacher"){
-            this.setState({buttons:<div></div>}
-            )}
-        this.classesToOptions()        
+        if (x==="teacher"){
+            // this.setState({buttons:(<div className={styles['subjec-flex-btn']}>
+            // <a className={styles['btn-in-profile-1']} href="/addHomework" id="class-btn">Добавить задание<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a>
+            // <a className={styles['btn-in-profile-1']} id="class-btn">Добавить предмет<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a>
+            // </div>)})
+            this.setState({teacher: true})
+            }
+
+               
     }
+    // chechRole(){
+
+    //     const a = JSON.parse(localStorage.userData)
+    //     const x = a[0].type_of_user
+       
+    //     if (x==="teacher"){
+    //         this.setState({buttons:[<div className={styles['subjec-flex-btn']}>
+    //         <a className={styles['btn-in-profile-1']} href="/addHomework" id="class-btn">Добавить задание<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a>
+    //         <a className={styles['btn-in-profile-1']} id="class-btn">Добавить предмет<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a><input value={this.state.createSub} onChange={this.changeCreateSub}></input>
+    //     </div>]}
+    //         )}
+               
+    // }
     selectClass(event){
         this.setState({currentClass:event.target.value})
         
+    }
+    changeCreateSub(event){
+        this.setState({createSub:event.target.value})
     }
     kostil(){
         
@@ -108,11 +151,23 @@ export default class Homeworks extends Component{
                                 {/* <button className={styles['btn-in-profile']} id="class-btn">Класс 4В<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></button> */}
                         </div>
                         <div>
+                            
                             {this.state.subjectsComp}
                         </div>
-                        {this.state.buttons}
+                        
+                        {/* {this.state.buttons} */}
+                        {this.state.teacher ? <div className={styles['subjec-flex-btn']}>
+            <a className={styles['btn-in-profile-1']} href="/addHomework" id="class-btn">Добавить задание<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></a>
+            
+                <button className={styles['btn-in-profile-1']}  onClick={this.createSubject}   id="class-btn">Добавить предмет<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></button>
+            
+                <input value={this.state.createSub} name="createSub" onChange={this.changeCreateSub}></input>
+            
+            </div> : <div></div>}
+
                     </div>
             </div>
         )
     }
 }
+{/* <input value={this.state.createSub} onChange={this.changeCreateSub}></input> */}

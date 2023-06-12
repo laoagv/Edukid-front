@@ -14,7 +14,8 @@ class Homewo extends Component{
         this.state = {
             homework_id:"",
             currentHome:"",
-            buttons:[<button className={styles['addAnswer']} id="class-btn">Добавить решение<img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></button>]
+            pupil: false,
+            buttons:[]
         };
         this.setCurentHome = this.setCurentHome.bind(this)
         this.chechRole = this.chechRole.bind(this)
@@ -36,8 +37,8 @@ class Homewo extends Component{
         const a = JSON.parse(localStorage.userData)
         const x = a[0].type_of_user
        
-        if (x!=="pupil"){
-            this.setState({buttons:<div></div>}
+        if (x==="pupil"){
+            this.setState({pupil:true}
             )}
         
     }
@@ -66,7 +67,8 @@ class Homewo extends Component{
                                 
                             </div>
                             <div>
-                                {this.state.buttons}
+                               {this.state.pupil ? <button className={styles['addAnswer']}  id="class-btn"><a href={"/addAnswer/"+this.state.homework_id}>Добавить решение</a><img src="{% static 'my_classes/images/svg/arrow.svg' %}"/></button> : <div></div>}
+                                <button className="addAnswer"><a href="/Homeworks">Назад</a></button>
                             </div>
                         </div>
                         <div>
