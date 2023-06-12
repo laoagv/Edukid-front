@@ -13,21 +13,33 @@ export default class MyClasses extends Component{
         this.state = {
           newClass: "",
 		  class_list: [],
+		  teacher: false
         };
         this.createNewClass = this.createNewClass.bind(this);
 		this.loadingUserClass = this.loadingUserClass.bind(this);
+		this.chechRole = this.chechRole.bind(this);
+
     }
 	componentDidMount() {
 		this.loadingUserClass()
+		this.chechRole()
 	  }
-    
+	  chechRole(){
+
+        const a = JSON.parse(localStorage.userData)
+        const x = a[0].type_of_user
+       
+        if (x==="teacher"){
+            this.setState({teacher: true})
+            }      
+    }
 	loadingUserClass(){
 		getUserClass().then(()=>{
 			// const newList = [...this.state.class_list]
 			const newList = []
 			const my_classes = JSON.parse(localStorage.userClasses)
 			for (let i =0;i<my_classes.length;i++){
-				newList.push(<Classes btnid = {nanoid()} class_name={my_classes[i].class_name} students={my_classes[i].students} class_id={my_classes[i].id}/>)
+				newList.push(<Classes btnid = {nanoid()} class_name={my_classes[i].class_name} teacher= {this.state.teacher} students={my_classes[i].students} class_id={my_classes[i].id}/>)
 				this.setState({class_list: [...newList]})
 			}
 		});
@@ -74,7 +86,7 @@ export default class MyClasses extends Component{
 					{/* {my_classes.map(classs =>{
 						return(<Classes class_name={classs.class_name} students={classs.students}/>)
 					})} */}
-					<div class="class-box">
+					{this.state.teacher ? <div class="class-box">
 						<form class="student-add">
 							<button onClick={e=>this.createNewClass(e)} class="btn-in-profile" id="class-btn"><img src={img}/>Добавить класс</button>
 							<input 
@@ -84,7 +96,7 @@ export default class MyClasses extends Component{
 								placeholder="Название класса"
 							/>
 						</form>				
-					</div>
+					</div> : <div></div>}
 				</div>
 			</section>
 		</div>

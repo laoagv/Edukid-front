@@ -74,7 +74,7 @@ export default class Classes extends Component{
 					<div class="profile-box">
 						{this.state.students_components}
 					</div>
-                   <form class="student-add">
+                   {this.props.teacher ? <form class="student-add">
          		    	<button onClick={e=>this.createNewStudent(e)} class="btn-in-profile" id="class-btn"><img src={img2}/>Добавить ученика:</button>
                          <input 
                             type="text" 
@@ -83,7 +83,7 @@ export default class Classes extends Component{
                             name="" 
                             title="id ученика"
                         />
-          			</form>	
+          			</form>	: <div></div>}
 	    	    		
 				</div>   
         )
