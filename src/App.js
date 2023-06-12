@@ -16,6 +16,7 @@ import "./Pages/kostil.css"
 import Homewo from './Pages/Homewo';
 import AddAnswer from './Pages/AddAnswer';
 import MySlider from './Components/MySlider';
+import Logout from './Pages/Logout';
 
 function App() {
 
