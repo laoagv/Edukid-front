@@ -1,7 +1,7 @@
 import React, {Component, useEffect, useRef, useState} from "react";
 
 import "./Header.css";
-import { checkAuth, getUserData } from "../api";
+import { checkAuth, getUserClass, getUserData, getUserHomeworks, getUserSubjects } from "../api";
 // import { Selector } from "react-redux";
 import imagessvg from "../images/svg/burger1.svg"
 import imagessvg2 from "../images/svg/burger2.svg"
@@ -11,7 +11,9 @@ import imagessvg4 from "../images/svg/burger4.svg"
 export default function Header() {
             const [userBox, setUserBox] = useState(<div className="sign-button"><a href="/login"><button id="sign-btn">Войти</button></a></div>)
             const loadingUserData = function (){
-                
+                getUserClass()
+                getUserHomeworks()
+                getUserSubjects()
                 getUserData().then(()=>{
                 const userData = JSON.parse(localStorage.userData)
                 setUserBox(<div className="kostil">

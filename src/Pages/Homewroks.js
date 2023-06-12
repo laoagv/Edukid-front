@@ -37,6 +37,7 @@ export default class Homeworks extends Component{
     componentDidUpdate(prevProps, prevState) {
         if (prevState.currentClass!==this.state.currentClass){
             this.getSubjectsByClass()
+            this.classesToOptions()
         }
         if (prevState.mysubjects!==this.state.mysubjects){
             this.renderSubjects()
